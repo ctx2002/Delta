@@ -80,4 +80,43 @@ module Delta
       @E = expressionAST
     end
   end
+  
+  class AnyTypeDenoterAST < TypeDenoterAST 
+  end
+  
+  class ArrayTypeDenoter < TypeDenoter  
+    attr_accessor(:IL,:T)
+    def initialize (integerLiteralAST, typeDenoterAST ) 
+      @IL = integerLiteralAST;
+      @T = typeDenoterAST;
+    end   
+   end
+  
+   class BinaryExpressionAST < Expression
+     attr_accessor(:O,:E1,:E2)
+     def initialize(expressionAST, operatorAST, e2xpressionAST)
+       @O = operatorAST;
+       @E1 = expressionAST;
+       @E2 = e2xpressionAST;   
+     end
+     
+   end
+   
+   class BinaryOperatorDeclarationAST < DeclarationAST
+     attr_accessor(:O,:ARG1,:ARG2,:RES)
+     def initialize(operatorAST, arg1AST,arg2AST,resultAST)
+        @O = oAST;
+        @ARG1 = arg1AST;
+        @ARG2 = arg2AST;
+        @RES = resultAST;
+     end
+   end
+   class BoolTypeDenoterAST < TypeDenoter
+   end
+   class CallCommandAST < CommandAST
+     def initialize(identifierAST, actualParameterSequenceAST)
+       @I = identifierAST
+       @APS = actualParameterSequenceAST
+     end
+   end
 end
