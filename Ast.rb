@@ -24,15 +24,16 @@ module Delta
   end
   
   class ConstDeclaration < AST
-    attr_accessor(:identifierAST,:expressionAST)  
-    def initialize(identifier,expression,token)
+    attr_accessor(:I,:E)  
+    def initialize(identifierAST,expressionAST,token)
         super(token)
-        @identifierAST = identifierAST
-        @expressionAST = expression
+        @I = identifierAST
+        @E = expression
       end  
   end
   
   class AnyTypeDenoter < TypedenoterAST 
+    
   end
   
   class ExpressionAST < AST 
@@ -53,7 +54,10 @@ module Delta
   end
   
   class ArrayAggregateAST < AST
-    attr_accessor(:eleCount)   
+    attr_accessor(:eleCount)
+    def initialize()
+      @eleCount = 0
+    end   
   end
   class ArrayExpression < ExpressionAST
     attr_accessor(:AA)
@@ -84,17 +88,19 @@ module Delta
   class AnyTypeDenoterAST < TypeDenoterAST 
   end
   
-  class ArrayTypeDenoter < TypeDenoter  
+  class ArrayTypeDenoterAST < TypeDenoterAST  
     attr_accessor(:IL,:T)
-    def initialize (integerLiteralAST, typeDenoterAST ) 
+    def initialize (integerLiteralAST, typeDenoterAST,token ) 
+      super(token)
       @IL = integerLiteralAST;
       @T = typeDenoterAST;
     end   
    end
   
-   class BinaryExpressionAST < Expression
+   class BinaryExpressionAST < ExpressionAST
      attr_accessor(:O,:E1,:E2)
-     def initialize(expressionAST, operatorAST, e2xpressionAST)
+     def initialize(expressionAST, operatorAST, e2xpressionAST,token)
+       super(token)
        @O = operatorAST;
        @E1 = expressionAST;
        @E2 = e2xpressionAST;   
@@ -104,45 +110,50 @@ module Delta
    
    class BinaryOperatorDeclarationAST < DeclarationAST
      attr_accessor(:O,:ARG1,:ARG2,:RES)
-     def initialize(operatorAST, arg1AST,arg2AST,resultAST)
+     def initialize(operatorAST, arg1AST,arg2AST,resultAST,token)
+        super(token)
         @O = oAST;
         @ARG1 = arg1AST;
         @ARG2 = arg2AST;
         @RES = resultAST;
      end
    end
-   class BoolTypeDenoterAST < TypeDenoter
+   class BoolTypeDenoterAST < TypeDenoterAST
    end
    class CallCommandAST < CommandAST
-     def initialize(identifierAST, actualParameterSequenceAST)
+     def initialize(identifierAST, actualParameterSequenceAST,token)
+       super(token)
        @I = identifierAST
        @APS = actualParameterSequenceAST
      end
    end
-   class CallExpressionAST < Expression
+   class CallExpressionAST < ExpressionAST
        attr_accessor(:I,:APS)
-       def initialize(identifierAST , actualParameterSequenceAST )
+       def initialize(identifierAST , actualParameterSequenceAST ,token)
+           super(token)
            @I = identifierAST
            @APS = actualParameterSequenceAST  
        end
    end
    
-   class CharacterExpression < Expression
+   class CharacterExpressionAST < ExpressionAST
      attr_accessor(:CL)
-     def CharacterExpression (characterLiteralAST)
+     def CharacterExpression (characterLiteralAST,token)
+         super(token)
          @CL = characterLiteralAST
      end
    end
    
    class TerminalAST < AST
      attr_accessor(:spelling)
-     def initialize(spelling)
+     def initialize(spelling,token)
+       super(token)
        @spelling = spelling
      end
    end
    class CharacterLiteralAST < TerminalAST
-     def initialize(spelling)
-       @spelling = spelling
+     def initialize(spelling,token)
+       super(spelling,token)
      end
    end
    class CharTypeDenoterAST < TypeDenoterAST
@@ -151,25 +162,30 @@ module Delta
    
    class ConstActualParameterAST < ActualParameterAST
      attr_accessor(:E)
-     def initialize(expressionAST)
+     def initialize(expressionAST,token)
+       super(token)
        @E = expressionAST
      end
    end
    class ConstDeclarationAST < DeclarationAST
      attr_accessor(:I,:E)
-     def initialize(identifierAST, expressionAST)
+     def initialize(identifierAST, expressionAST,token)
+       super(token)
        @I = identifierAST
        @E = expressionAST
      end
    end
    
    class FormalParameterAST < DeclarationAST
-     
+     def initialize(token)
+       super(token)
+     end    
    end
    
    class ConstFormalParameterAST < FormalParameterAST
      attr_accessor(:I,:T)
-     def initialize(identifierAST, typeDenoterAST)
+     def initialize(identifierAST, typeDenoterAST,token)
+       super(token)
        @I = identifierAST
        @T = typeDenoterAST
      end
@@ -177,33 +193,47 @@ module Delta
    
    class DotVnameAST < VnameAST
      attr_accessor(:V,:I)
-     def initialize(vnameAST, identifierAST)
+     def initialize(vnameAST, identifierAST,token)
+       super(token)
        @V = vnameAST
        @I = identifierAST
      end
    end
    
    class EmptyActualParameterSequenceAST < ActualParameterSequenceAST
-       
+     def initialize(token)
+       super(token)
+     end       
    end
    class EmptyCommandAST < CommandAST
+     def initialize(token)
+       super(token)
+     end
    end
    class EmptyExpression < ExpressionAST
+     def initialize(token)
+       super(token)
+     end
    end
    class FormalParameterSequenceAST < AST
+     
    end
    class EmptyFormalParameterSequenceAST < FormalParameterSequenceAST
+     
    end
    
    class ErrorTypeDenoterAST < TypeDenoterAST
+    
    end
    
    class FieldTypeDenoterAST < TypeDenoterAST
+     
    end
    
    class FuncActualParameterAST < ActualParameterAST
      attr_accessor(:I)
-     def initialize(identifierAST)
+     def initialize(identifierAST,token)
+       super(token)
        @I = identifierAST
      end
    end
@@ -211,7 +241,8 @@ module Delta
    class FuncDeclarationAST < DeclarationAST
      attr_accessor(:I,:FPS,:T,:E)
      def initialize(identifierAST, formalParameterSequenceAST,
-                    typeDenoterAST, expressionAST)
+                    typeDenoterAST, expressionAST,token)
+         super(token)
          @I = identifierAST
          @FPS = formalParameterSequenceAST
          @T = typeDenoterAST
@@ -222,7 +253,8 @@ module Delta
    class FuncFormalParameterAST < FormalParameterAST
      attr_accessor(:I,:FPS,:T)
      def initialize(identifierAST, formalParameterSequenceAST,
-       typeDenoterAST)
+       typeDenoterAST,token)
+       super(token)
        @I = identifierAST
        @FPS = formalParameterSequenceAST
        @token = typeDenoterAST
