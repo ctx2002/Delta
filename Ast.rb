@@ -119,4 +119,113 @@ module Delta
        @APS = actualParameterSequenceAST
      end
    end
+   class CallExpressionAST < Expression
+       attr_accessor(:I,:APS)
+       def initialize(identifierAST , actualParameterSequenceAST )
+           @I = identifierAST
+           @APS = actualParameterSequenceAST  
+       end
+   end
+   
+   class CharacterExpression < Expression
+     attr_accessor(:CL)
+     def CharacterExpression (characterLiteralAST)
+         @CL = characterLiteralAST
+     end
+   end
+   
+   class TerminalAST < AST
+     attr_accessor(:spelling)
+     def initialize(spelling)
+       @spelling = spelling
+     end
+   end
+   class CharacterLiteralAST < TerminalAST
+     def initialize(spelling)
+       @spelling = spelling
+     end
+   end
+   class CharTypeDenoterAST < TypeDenoterAST
+     
+   end
+   
+   class ConstActualParameterAST < ActualParameterAST
+     attr_accessor(:E)
+     def initialize(expressionAST)
+       @E = expressionAST
+     end
+   end
+   class ConstDeclarationAST < DeclarationAST
+     attr_accessor(:I,:E)
+     def initialize(identifierAST, expressionAST)
+       @I = identifierAST
+       @E = expressionAST
+     end
+   end
+   
+   class FormalParameterAST < DeclarationAST
+     
+   end
+   
+   class ConstFormalParameterAST < FormalParameterAST
+     attr_accessor(:I,:T)
+     def initialize(identifierAST, typeDenoterAST)
+       @I = identifierAST
+       @T = typeDenoterAST
+     end
+   end
+   
+   class DotVnameAST < VnameAST
+     attr_accessor(:V,:I)
+     def initialize(vnameAST, identifierAST)
+       @V = vnameAST
+       @I = identifierAST
+     end
+   end
+   
+   class EmptyActualParameterSequenceAST < ActualParameterSequenceAST
+       
+   end
+   class EmptyCommandAST < CommandAST
+   end
+   class EmptyExpression < ExpressionAST
+   end
+   class FormalParameterSequenceAST < AST
+   end
+   class EmptyFormalParameterSequenceAST < FormalParameterSequenceAST
+   end
+   
+   class ErrorTypeDenoterAST < TypeDenoterAST
+   end
+   
+   class FieldTypeDenoterAST < TypeDenoterAST
+   end
+   
+   class FuncActualParameterAST < ActualParameterAST
+     attr_accessor(:I)
+     def initialize(identifierAST)
+       @I = identifierAST
+     end
+   end
+   
+   class FuncDeclarationAST < DeclarationAST
+     attr_accessor(:I,:FPS,:T,:E)
+     def initialize(identifierAST, formalParameterSequenceAST,
+                    typeDenoterAST, expressionAST)
+         @I = identifierAST
+         @FPS = formalParameterSequenceAST
+         @T = typeDenoterAST
+         @E = expressionAST
+     end
+   end
+   
+   class FuncFormalParameterAST < FormalParameterAST
+     attr_accessor(:I,:FPS,:T)
+     def initialize(identifierAST, formalParameterSequenceAST,
+       typeDenoterAST)
+       @I = identifierAST
+       @FPS = formalParameterSequenceAST
+       @token = typeDenoterAST
+     end
+   end
 end
