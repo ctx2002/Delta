@@ -16,10 +16,33 @@ module Delta
       raise SyntaxError, "Expected #{tokenID}, current #{@currentToken.classInfo}"
     end
     
+    def acceptIt()
+      @currentToken = @scanner.scan()  
+    end
+    
     def parseProgram
         @currentToken = preToken = @scanner.scan()
-        commandAST = parseCommand()
-        programAST =  Delta::programAST.new(commandAST,preToken)     
+        begin
+          commandAST = parseCommand()
+          programAST =  Delta::programAST.new(commandAST,preToken)
+        rescue SyntaxError
+          return nil  
+        end
+        return programAST     
+    end
+    
+    def parseCommand
+      commandAST = nil
+      commandAST = parseSingleCommand();
+    end
+    
+    def parseSingleCommand
+      commandAST = nil
+      if (@currentToken.match?(:identifier))
+        identifierAST = parseIdentifier();
+      elsif (@currentToken.match?(:lparen))
+        acceptIt()  
+      end
     end
     
     def parseIdentifier
