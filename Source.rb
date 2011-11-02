@@ -19,11 +19,11 @@ module Delta
             end
     end
     def getc
-        if @file
+      if @file
         return @file.getc
       else 
           puts "File was not open " + @fileName
-                exit        
+          exit        
       end
     end
     def ungetc(char)
@@ -41,7 +41,7 @@ module Delta
     
     def takeChar
         @currentChar = getc
-      sourceInfo (@currentChar) 
+        sourceInfo (@currentChar) 
     end
     
     def fetchFirstChar

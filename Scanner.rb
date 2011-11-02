@@ -21,7 +21,7 @@ module Delta
       @register << IntegerToken.new
       @register << EofToken.new
       @register << SpaceToken.new
-        @register << CommentToken.new
+      @register << CommentToken.new
       @register << IdentifierToken.new
       @register << OperatorToken.new
       @register << DotToken.new
@@ -35,24 +35,28 @@ module Delta
       @register << Rparen.new
       @register << Lbracket.new
       @register << Rbracket.new
+      @register << CharLiteral.new
     end
     
     def scan
       error = true
       for t in @register
-          if t.matchFirst? == true
-            error = false
+        if t.matchFirst? == true
+          error = false
           t.collectInfo
+          #if (t.currentToken.match?(:identifier))
+            
+          #end
           return t.currentToken
         end
       end 
       
       if error == true
-          return ErrorToken.new.currentToken
-            else
-                puts "internal error"
+        return ErrorToken.new.currentToken
+      else
+        puts "internal error"
         p Scanner.source
-                exit      
+        exit      
       end
     end
     
@@ -74,8 +78,8 @@ module Delta
     
     private
     def tokenInfo(tokenClass,value)
-        @currentToken = Delta::Token.new
-        @currentToken.sourceInfo[:charCode] = Scanner.source.charCode
+      @currentToken = Delta::Token.new
+      @currentToken.sourceInfo[:charCode] = Scanner.source.charCode
       @currentToken.sourceInfo[:currentLine] = Scanner.source.line
       @currentToken.sourceInfo[:startColumn] = Scanner.source.position
       @currentToken.classInfo = tokenClass
@@ -196,29 +200,31 @@ module Delta
       
         if Scanner.source.currentChar == ':'
           takeIt
-        if (Scanner.source.currentChar != '=')
-            r = true
+         
+          if (Scanner.source.currentChar != '=')
+              r = true
+          end
+          Scanner.source.ungetc(Scanner.source.currentChar)   
         end
-        Scanner.source.ungetc(Scanner.source.currentChar)   
-      end
-      return r   
+        
+        return r   
     end
     def collectInfo
         tokenInfo(:colon,':')
-          takeIt
-        end
+        takeIt
+    end
   end
   
   class BecomesToken < ScanToken
       def matchFirst?
         r = false
-      old = Scanner.source.currentChar
+        old = Scanner.source.currentChar
         if old == ':'
           takeIt()
         if (Scanner.source.currentChar == '=')
             r = true
         else
-            Scanner.source.ungetc(Scanner.source.currentChar)
+          Scanner.source.ungetc(Scanner.source.currentChar)
           Scanner.source.currentChar = old
         end    
       end
@@ -230,16 +236,36 @@ module Delta
         end
   end
   
+  class CharLiteral < ScanToken
+    def matchFirst?
+      if Scanner.source.currentChar == "'"
+        takeIt()
+        
+        tokenInfo(:charliteral,Scanner.source.currentChar)
+        takeIt()
+        
+        if Scanner.source.currentChar != "'"
+          return false
+        end
+        return true
+      end
+      return false
+    end
+    def collectInfo
+       takeIt      
+    end
+  end
+  
   class DotToken < ScanToken
       def matchFirst?
-            if Scanner.source.currentChar == '.'
+        if Scanner.source.currentChar == '.'
         return true
       end
       return false
     end
         
         def collectInfo
-        tokenInfo(:dot,'.')
+          tokenInfo(:dot,'.')
           takeIt
         end   
   end
@@ -260,7 +286,7 @@ module Delta
             
       loop do
           tokenValue = tokenValue + Scanner.source.currentChar
-                takeIt  
+          takeIt  
           break if !['+','-','*','/','=','<','>','\\','&','@','%','^','?'].include?(Scanner.source.currentChar)           
       end
       
@@ -271,63 +297,66 @@ module Delta
     end       
   end
   class IdentifierToken < ScanToken
-      def matchFirst?
-            if (Scanner.source.currentChar =~ /[a-zA-Z]/) != nil
+    def matchFirst?
+      if (Scanner.source.currentChar =~ /[a-zA-Z]/) != nil
         return true
       end
       return false
     end
         
-        def collectInfo
-        tokenValue = ''
+    def collectInfo
+      tokenValue = ''
       startColumn = Scanner.source.position
       line = Scanner.source.line
       charCode = Scanner.source.charCode
       
       loop do
           tokenValue = tokenValue + Scanner.source.currentChar
-                takeIt
-                break if (Scanner.source.currentChar =~ /[a-zA-Z]/) == nil    
+          takeIt
+          break if (Scanner.source.currentChar =~ /[a-zA-Z]/) == nil    
       end
-            #while (Scanner.source.currentChar =~ /[a-zA-Z]/) != nil
-            #   tokenValue = tokenValue + Scanner.source.currentChar
-      # takeIt
-      #end
-            tokenInfo(:identifier,tokenValue)
+      
+      id = TokenClass.getID(tokenValue)
+      #puts "id #{tokenValue}"
+      #p id
+      if id == nil
+        id = :identifier
+      end
+      tokenInfo(id,tokenValue)
       @currentToken.sourceInfo[:charCode] = charCode
       @currentToken.sourceInfo[:currentLine] = line
       @currentToken.sourceInfo[:startColumn] = startColumn
-            #puts "current symbol " , Scanner.source.currentChar      
+           
     end   
   end
   
   class CommentToken < ScanToken
       def matchFirst?
-            if (Scanner.source.currentChar == '!')
-        return true
+        if (Scanner.source.currentChar == '!')
+          return true
+        end
+        return false
       end
-      return false
-    end
-        def collectInfo
-            while  Scanner.source.currentChar != "\n" &&   Scanner.source.currentChar != "\r" && Scanner.source.charCode != -1
-        takeIt    
-      end
-      #if Scanner.source.currentChar == "\n" || Scanner.source.currentChar == "\r"
-      # takeIt
-      #end
-      tokenInfo(:space,'!')   
-    end   
+      
+      def collectInfo
+        while  Scanner.source.currentChar != "\n" &&   Scanner.source.currentChar != "\r" && Scanner.source.charCode != -1
+          takeIt    
+        end
+      
+        tokenInfo(:comment,'!')   
+      end   
   end
   
   class SpaceToken < ScanToken
       def matchFirst?
-            if (Scanner.source.currentChar =~ /\s/) != nil
-        return true
+        if (Scanner.source.currentChar =~ /\s/) != nil
+          return true
+        end
+        
+        return false
       end
-      return false
-    end
     def collectInfo
-        tokenInfo(:space,'<space>')
+      tokenInfo(:space,'<space>')
       takeIt
     end
   end
@@ -336,11 +365,10 @@ module Delta
       
     def matchFirst?
         if  Scanner.source.currentChar == ';'
-        return true
-      end
+          return true
+        end
       
-      return false
-      
+        return false  
     end
     def collectInfo
         tokenInfo(:semicolon,';')
@@ -364,7 +392,7 @@ module Delta
       def matchFirst?
       return ['0','1','2','3','4','5','6','7','8','9'].include?(Scanner.source.currentChar)
     end
-        def collectInfo
+      def collectInfo
            
       tokenValue = ''
       

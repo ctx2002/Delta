@@ -16,10 +16,15 @@ module Delta
     end
   end
   
-  class IdentifierAST < AST
+  class TerminalAST < AST
+  end
+  
+  class IdentifierAST < TerminalAST
+    attr_accessor( :typeDenoter,:decl)
     def initialize(token)
       super(token)
-      #@astName = "identifierAST"
+      @typeDenoter = nil
+      @decl = nil
     end
   end
   
@@ -32,9 +37,12 @@ module Delta
       end  
   end
   
-  class AnyTypeDenoter < TypedenoterAST 
-    
+  class TypeDenoterAST < AST
   end
+  
+  #class AnyTypeDenoter < TypedenoterAST 
+    
+  #end
   
   class ExpressionAST < AST 
     
@@ -46,8 +54,7 @@ module Delta
   end
   class DeclarationAST < AST
   end
-  class TypedenoterAST < AST
-  end
+  
   class ActualParameterAST < AST
   end
   class ActualParameterSequenceAST < AST
@@ -67,7 +74,7 @@ module Delta
     end
   end
   
-  class ArrayTypeDenoter < TypedenoterAST
+  class ArrayTypeDenoter < TypeDenoterAST
     attr_accessor(:IL,:T)
     def initialize(integerLiteralAST, typeDenoterAST,token)
       super(token)
@@ -144,17 +151,17 @@ module Delta
      end
    end
    
-   class TerminalAST < AST
-     attr_accessor(:spelling)
-     def initialize(spelling,token)
-       super(token)
-       @spelling = spelling
-     end
-   end
+   #class TerminalAST < AST
+   #  attr_accessor(:spelling)
+   #  def initialize(spelling,token)
+   #    super(token)
+   #    @spelling = spelling
+   #  end
+   #end
    class CharacterLiteralAST < TerminalAST
-     def initialize(spelling,token)
-       super(spelling,token)
-     end
+     #def initialize(spelling,token)
+     #  super(spelling,token)
+     #end
    end
    class CharTypeDenoterAST < TypeDenoterAST
      
@@ -349,6 +356,10 @@ module Delta
      end
    end
    
+   class RecordAggregateAST < AST
+       attr_accessor(:type)
+   end
+   
    class MultipleRecordAggregateAST < RecordAggregateAST
      attr_accessor(:I,:E,:RA)
      def initialize(identifierAST, expressionAST, recordAggregateAST,token)
@@ -359,9 +370,7 @@ module Delta
      end    
    end
    
-   class RecordAggregateAST < AST
-     attr_accessor(:type)
-   end
+   
    
    class RecordExpressionAST < ExpressionAST
      attr_accessor(:RA)

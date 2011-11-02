@@ -41,10 +41,22 @@ module Delta
     @@tokenClass[:rcurly] = '}'
     @@tokenClass[:error] = '<error>'
     
+    @@tokenClass[:comment] = '!'
+    
     
     
     def self.getTokenClass(classSymbol)
       return @@tokenClass[classSymbol]
+    end
+    
+    def self.getID(value)
+      @@tokenClass.each do |key,v|
+          if value == v
+            return key
+          end
+      end
+      
+      return nil  
     end
     
     end
