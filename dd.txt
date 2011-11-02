@@ -1,0 +1,10 @@
+! This program is useless
+! except for illustration.
+let
+var n: integer;
+var c: char
+in
+begin
+c := '&';
+n := n+1;
+end
