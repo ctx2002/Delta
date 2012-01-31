@@ -66,7 +66,7 @@ module Delta
       @eleCount = 0
     end   
   end
-  class ArrayExpression < ExpressionAST
+  class ArrayExpressionAST < ExpressionAST
     attr_accessor(:AA)
     def initialize(arrayAggregateAST ,token)
       super(token)

@@ -32,6 +32,7 @@ module Delta
         @currentToken = preToken = scan()
         begin
           commandAST = parseCommand()
+          #p commandAST
           programAST =  Delta::programAST.new(commandAST,preToken)
         rescue SyntaxError
           print "An error occurred: ",$!, "\n"
@@ -43,8 +44,7 @@ module Delta
     def parseCommand
       commandAST = nil
       preToken = @currentToken
-      commandAST = parseSingleCommand();
-      
+      commandAST = parseSingleCommand()
       while (@currentToken.match?(:semicolon))
          acceptIt();
          commandAST2 = parseSingleCommand();
@@ -56,13 +56,10 @@ module Delta
     def parseSingleCommand
       commandAST = nil
       preToken = @currentToken
-      puts __method__
-      p @currentToken
+      
       if (@currentToken.match?(:identifier))
-        puts __method__
-        puts "in"
+        
         iAST = parseIdentifier()
-        p @currentToken
         if (@currentToken.match?(:lparen) )
           acceptIt() 
           apsAST = parseActualParameterSequence()
@@ -72,11 +69,11 @@ module Delta
           vAST = parseRestOfVname(iAST);
           accept(:becomes);
           eAST = parseExpression();
-          commandAST = new AssignCommand.new(vAST, eAST, preToken);  
+          commandAST = new AssignCommand.new(vAST, eAST, preToken)  
         end
       elsif (@currentToken.match?(:begin))
         acceptIt();
-        commandAST = parseCommand();
+        commandAST = parseCommand()
         accept(:end);
       elsif (@currentToken.match?(:let))
         acceptIt()
@@ -134,32 +131,201 @@ module Delta
       expressionAST = nil
       preToken = @currentToken
       if (@currentToken.match?(:let))
-        acceptIt();
+        acceptIt()
         #TODO
-        #dAST = parseDeclaration();
-        #accept(Token.IN);
-        #Expression eAST = parseExpression();
-        #finish(expressionPos);
-        #expressionAST = new LetExpression(dAST, eAST, expressionPos);
+        dAST = parseDeclaration()
+        accept(:in)
+        expressionAST = parseExpression()
+        expressionAST = LetExpressionAST.new(dAST, eAST, preToken);
       elsif(@currentToken.match?(:if))
-        #acceptIt();
-        #Expression e1AST = parseExpression();
-        #accept(Token.THEN);
-        #Expression e2AST = parseExpression();
-        #accept(Token.ELSE);
-        #Expression e3AST = parseExpression();
-        #finish(expressionPos);
-        #expressionAST = new IfExpression(e1AST, e2AST, e3AST, expressionPos);
+        acceptIt()
+        e1AST = parseExpression()
+        accept(:then)
+        e2AST = parseExpression()
+        accept(:else);
+        e3AST = parseExpression()
+        expressionAST = IfExpressionAST.new(e1AST, e2AST, e3AST, preToken)
       else
-        #expressionAST = parseSecondaryExpression()
+        expressionAST = parseSecondaryExpression()
       end
       return expressionAST  
+    end
+    
+    def parseSecondaryExpression
+      expressionAST = nil
+      preToken = @currentToken
+      expressionAST = parsePrimaryExpression();
+      while (@currentToken.match?(:operator))
+        opAST = parseOperator()
+        e2AST = parsePrimaryExpression();
+        expressionAST = BinaryExpressionAST.new(expressionAST, opAST, e2AST,preToken)
+      end
+      return expressionAST
+    end
+    
+    def parsePrimaryExpression
+      preToken = @currentToken
+      expressionAST = nil
+      if @currentToken.match?(:intliteral)
+        ilAST = parseIntegerLiteral()
+        expressionAST = new IntegerExpressionAST.new(ilAST, preToken)
+      elsif @currentToken.match?(:charliteral)
+        clAST= parseCharacterLiteral()
+        expressionAST = CharacterExpressionAST.new(clAST, preToken)
+      elsif @currentToken.match?(:lbracket)
+        acceptIt()
+        aaAST = parseArrayAggregate();
+        accept(:rbracket);
+        expressionAST = ArrayExpressionAST.new(aaAST, preToken)
+      elsif @currentToken.match?(:lcurly)
+        acceptIt();
+        raAST = parseRecordAggregate()
+        accept(:rcurly)
+        expressionAST = RecordExpressionAST.new(raAST, pretoken)
+      elsif @currentToken.match?(:identifier)
+        iAST= parseIdentifier()
+        if (@currentToken.match?(:lparen) )
+          acceptIt()
+          apsAST = parseActualParameterSequence()
+          accept(:rparen)
+          expressionAST = CallExpressionAST.new(iAST, apsAST, preToken)
+        else
+          vAST = parseRestOfVname(iAST)
+          expressionAST = VnameExpressionAST.new(vAST, preToken)
+        end
+      elsif @currentToken.match?(:operator)
+        opAST = parseOperator()
+        eAST = parsePrimaryExpression()
+        expressionAST = UnaryExpressionAST.new(opAST, eAST, preToken)
+      elsif @currentToken.match?(:lparen)
+        acceptIt()
+        expressionAST = parseExpression()
+        accept(:rparen)
+      else
+        raise SyntaxError, "cannot start an expression , current token #{@currentToken.classInfo}"    
+      end    
+    end
+    
+    def parseActualParameterSequence
+      actualAST = nil
+      preToken = @currentToken
+      id  = TokenClass.getID(@currentToken.spelling)
+      if [:identifier,:intliteral,:charliteral,:operator,:let,:if,:lparen,:lbracket,:lcurly].include?(id)
+        eAST = parseExpression()
+        actualAST = new ConstActualParameterAST.new(eAST, @currentToken)
+      elsif ( @currentToken.match?(:var) )
+        acceptIt();
+        vAST = parseVname()
+        actualAST = VarActualParameterAST.new(vAST, preToken)
+      elsif ( @currentToken.match?(:proc) )
+        acceptIt()
+        iAST = parseIdentifier()
+        actualAST = ProcActualParameterAST.new(iAST, preToken)
+      elsif ( @currentToken.match?(:func) )
+        acceptIt()
+        iAST = parseIdentifier()
+        actualAST = FuncActualParameterAST.new(iAST, preToken)
+      else
+        #cannot start an actual parameter
+        raise SyntaxError, "cannot start an actual parameter , current token #{@currentToken.classInfo}"    
+      end
+      
+      return actualAST
+    end
+    
+    def parseVname
+        #TODO:
+    end
+    
+    def parseIdentifier
+      i = nil
+      if (@currentToken.match?(:identifier)) 
+        i = new IdentifierAST.new(@currentToken)
+        acceptIt()
+      else
+        i = nil
+        raise SyntaxError, "identifier expected here , current token #{@currentToken.classInfo}"    
+      end
+      return I;
+    end
+    
+    def parseIntegerLiteral
+      il = nil
+      
+      if @currentToken.match?(:intliteral)
+        il = IntegerLiteralAST.new(@currentToken)
+        acceptIt()
+      else
+        il = nil
+        raise SyntaxError, "integer literal expected here , current token #{@currentToken.classInfo}"    
+      end
+      
+      return il;
+    end
+    
+    def parseCharacterLiteral
+      cl = nil
+      if @currentToken.match?(:charliteral)
+        cl =   CharacterLiteralAST.new(@currentToken)
+        acceptIt()
+      else
+        cl = nil
+        raise SyntaxError, "character literal expected here , current token #{@currentToken.classInfo}"
+      end
+      
+      return cl
+    end
+    
+    def parseArrayAggregate
+      aggregateAST = nil
+      preToken = @currentToken
+  
+      eAST = parseExpression()
+      if @currentToken.match?(:comma)
+        acceptIt()
+        aAST = parseArrayAggregate()
+        aggregateAST = MultipleArrayAggregateAST.new(eAST, aAST, preToken)
+      else
+        aggregateAST = SingleArrayAggregateAST.new(eAST, preToken) 
+      end
+      
+      return aggregateAST
+    end
+    
+    def parseRecordAggregate
+      aggregateAST = nil
+      preToken = @currentToken
+      Identifier iAST = parseIdentifier()
+      accept(:is)
+      eAST = parseExpression()
+      if @currentToken.match?(:comma)
+        acceptIt()
+        aAST = parseRecordAggregate()
+        aggregateAST = MultipleRecordAggregateAST,new(iAST, eAST, aAST, preToken)
+      else
+        aggregateAST = SingleRecordAggregate.new(iAST, eAST, preToken)
+      end
+      
+      return aggregateAST
+    end
+    
+    def parseOperator
+      operator = nil
+      if @currentToken.match?(:operator)
+        preToken = @currentToken
+        operator = OperatorAST.new(preToken)
+      else
+        operator = nil
+        raise SyntaxError, "operator expected here , current token #{@currentToken.classInfo}"  
+      end
+      return operator
     end
     
     def parseDeclaration
       declarationAST = nil
       preToken = @currentToken
       declarationAST = parseSingleDeclaration();
+      
       while (@currentToken.match?(:semicolon) ) 
         acceptIt();
         d2AST = parseSingleDeclaration();
@@ -181,7 +347,7 @@ module Delta
         acceptIt();
         iAST = parseIdentifier();
         accept(:colon);
-        
+        #TODO:
         #TypeDenoter tAST = parseTypeDenoter();
         #declarationAST = new VarDeclaration(iAST, tAST, declarationPos);
       elsif (@currentToken.match?(:proc))
@@ -281,8 +447,6 @@ module Delta
       if @currentToken.match?(:identifier)     
           idenAST = Delta::IdentifierAST.new(preToken)
           @currentToken = scan()
-          puts __method__
-          p @currentToken
       else
         raise SyntaxError, "identifier expected here, current #{@currentToken.classInfo}"
       end

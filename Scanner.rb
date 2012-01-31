@@ -137,37 +137,37 @@ module Delta
   class Lbracket < ScanToken
       def matchFirst?
         if Scanner.source.currentChar == '['
-                return true
+         return true
       end
       return false
     end
     def collectInfo
         tokenInfo(:lbracket,'[')
-          takeIt
+        takeIt
     end     
   end
   class Rparen < ScanToken
       def matchFirst?
         if Scanner.source.currentChar == ')'
-                return true
+          return true
       end
       return false
     end
     def collectInfo
         tokenInfo(:rparen,')')
-          takeIt
+        takeIt
     end  
   end
   class Lparen < ScanToken
       def matchFirst?
         if Scanner.source.currentChar == '('
-                return true
+           return true
       end
       return false
     end
     def collectInfo
         tokenInfo(:lparen,'(')
-          takeIt
+        takeIt
     end    
   end
   class IsToken < ScanToken

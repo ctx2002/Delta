@@ -1,7 +1,7 @@
 ! This program is useless
 ! except for illustration.
 let
-var n: integer;
+var n: integer
 var c: char
 in
 begin
