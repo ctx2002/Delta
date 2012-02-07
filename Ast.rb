@@ -34,7 +34,7 @@ module Delta
         super(token)
         @I = identifierAST
         @E = expression
-      end  
+    end  
   end
   
   class TypeDenoterAST < AST
@@ -45,7 +45,9 @@ module Delta
   #end
   
   class ExpressionAST < AST 
-    
+    #def initialize(token)
+    #  super(token) 
+    #end
   end
   
   class VnameAST < AST
@@ -92,7 +94,7 @@ module Delta
     end
   end
   
-  class AnyTypeDenoterAST < TypeDenoterAST 
+  class AnyTypeDenoterAST < TypeDenoterAST	  
   end
   
   class ArrayTypeDenoterAST < TypeDenoterAST  
@@ -145,7 +147,7 @@ module Delta
    
    class CharacterExpressionAST < ExpressionAST
      attr_accessor(:CL)
-     def CharacterExpression (characterLiteralAST,token)
+     def initialize (characterLiteralAST,token)
          super(token)
          @CL = characterLiteralAST
      end
@@ -295,7 +297,7 @@ module Delta
      end
    end
    
-   class IntegerLiteral < TerminalAST
+   class IntegerLiteralAST < TerminalAST
      
    end
    class IntTypeDenoterAST < TypeDenoterAST
@@ -391,7 +393,7 @@ module Delta
      attr_accessor(:C1,:C2)
      def initialize(commandAST1, commandAST2,token)
        super(token)
-       @C1 = CommandAST1
+       @C1 = commandAST1
        @C2 = commandAST2
      end
    end
@@ -465,8 +467,8 @@ module Delta
    
    class OperatorAST < TerminalAST
      attr_accessor(:decl)
-     def initialize(spelling,token)
-       super(spelling, token)
+     def initialize(token)
+       super(token)
        @decl = nil
      end
    end
@@ -574,12 +576,19 @@ module Delta
   
   class WhileCommandAST < CommandAST
     attr_accessor(:E,:C)
-    def initilize(expressionAST, commandAST,token)
+    def initialize(expressionAST, commandAST,token)
       super(token)
       @E = expressionAST
       @C = commandAST
     end
   end
   
+  class IntegerExpressionAST < ExpressionAST
+    attr_accessor(:IL)
+	def initialize(ilAST, token)
+      super(token)
+      @IL = ilAST
+    end
+  end
   
 end

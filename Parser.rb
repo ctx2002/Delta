@@ -12,13 +12,14 @@ module Delta
       if @currentToken.match?(tokenID)
         @currentToken = scan()
       else
-        raise SyntaxError, "Expected #{tokenID}, current #{@currentToken.classInfo} #{@currentToken.value}"  
+        raise SyntaxError, "Expected '#{tokenID}', current #{@currentToken.classInfo} #{@currentToken.value} line #{@currentToken.sourceInfo}"  
       end      
     end
     
     def scan
       token = @scanner.scan()
-      while(token.match?(:comment) || token.match?(:eof) || token.match?(:space))
+	  #|| token.match?(:eof)
+      while(token.match?(:comment)  || token.match?(:space))
         token = @scanner.scan()
       end
       return token
@@ -33,7 +34,8 @@ module Delta
         begin
           commandAST = parseCommand()
           #p commandAST
-          programAST =  Delta::programAST.new(commandAST,preToken)
+          programAST =  Delta::ProgramAST.new(commandAST,preToken)
+		  p programAST
         rescue SyntaxError
           print "An error occurred: ",$!, "\n"
           return nil  
@@ -45,6 +47,7 @@ module Delta
       commandAST = nil
       preToken = @currentToken
       commandAST = parseSingleCommand()
+	  
       while (@currentToken.match?(:semicolon))
          acceptIt();
          commandAST2 = parseSingleCommand();
@@ -69,7 +72,7 @@ module Delta
           vAST = parseRestOfVname(iAST);
           accept(:becomes);
           eAST = parseExpression();
-          commandAST = new AssignCommand.new(vAST, eAST, preToken)  
+          commandAST = AssignCommandAST.new(vAST, eAST, preToken)  
         end
       elsif (@currentToken.match?(:begin))
         acceptIt();
@@ -80,7 +83,7 @@ module Delta
         dAST = parseDeclaration()
         accept(:in)
         cAST = parseSingleCommand()
-        commandAST = LetCommand.new(dAST, cAST, preToken);
+        commandAST = LetCommandAST.new(dAST, cAST, preToken);
       elsif (@currentToken.match?(:if))
         acceptIt();
         eAST = parseExpression()
@@ -99,7 +102,7 @@ module Delta
              @currentToken.match?(:end) ||
               @currentToken.match?(:else) ||
               @currentToken.match?(:in) ||
-              @currentToken.match?(:eot) ) 
+              @currentToken.match?(:eot) )  
        commandAST = EmptyCommandAST.new(preToken)
       else
         raise SyntaxError, "cannot start a command , current token #{@currentToken.classInfo}"  
@@ -132,7 +135,6 @@ module Delta
       preToken = @currentToken
       if (@currentToken.match?(:let))
         acceptIt()
-        #TODO
         dAST = parseDeclaration()
         accept(:in)
         expressionAST = parseExpression()
@@ -168,7 +170,7 @@ module Delta
       expressionAST = nil
       if @currentToken.match?(:intliteral)
         ilAST = parseIntegerLiteral()
-        expressionAST = new IntegerExpressionAST.new(ilAST, preToken)
+        expressionAST = IntegerExpressionAST.new(ilAST , preToken)
       elsif @currentToken.match?(:charliteral)
         clAST= parseCharacterLiteral()
         expressionAST = CharacterExpressionAST.new(clAST, preToken)
@@ -234,7 +236,10 @@ module Delta
     end
     
     def parseVname
-        #TODO:
+		vnameAST = nil
+		iAST = parseIdentifier()
+		parseRestOfVname(iAST)
+		return vnameAST
     end
     
     def parseIdentifier
@@ -295,7 +300,7 @@ module Delta
     def parseRecordAggregate
       aggregateAST = nil
       preToken = @currentToken
-      Identifier iAST = parseIdentifier()
+      iAST = parseIdentifier()
       accept(:is)
       eAST = parseExpression()
       if @currentToken.match?(:comma)
@@ -312,8 +317,8 @@ module Delta
     def parseOperator
       operator = nil
       if @currentToken.match?(:operator)
-        preToken = @currentToken
-        operator = OperatorAST.new(preToken)
+        operator = OperatorAST.new(@currentToken)
+		@currentToken = scan()
       else
         operator = nil
         raise SyntaxError, "operator expected here , current token #{@currentToken.classInfo}"  
@@ -322,10 +327,18 @@ module Delta
     end
     
     def parseDeclaration
-      declarationAST = nil
+      declarationAST = nil 
       preToken = @currentToken
       declarationAST = parseSingleDeclaration();
-      
+      #if currentToken is :var, which means there are 
+	  #multiple var definition line , and one of line is not ended with ";"
+	  #for example:
+	  # var n: integer
+      # var c: char 
+	  # var n: integer must followed by a ";"
+	  if (@currentToken.match?(:var))
+	    raise SyntaxError, "need a ; after a var definition"
+	  end
       while (@currentToken.match?(:semicolon) ) 
         acceptIt();
         d2AST = parseSingleDeclaration();
@@ -341,49 +354,87 @@ module Delta
         acceptIt();
         iAST = parseIdentifier();
         accept(:is);
+		preToken = @currentToken
         eAST = parseExpression();
         declarationAST = ConstDeclaration.AST(iAST, eAST, preToken);
       elsif (@currentToken.match?(:var))
-        acceptIt();
+        acceptIt()
         iAST = parseIdentifier();
         accept(:colon);
-        #TODO:
-        #TypeDenoter tAST = parseTypeDenoter();
-        #declarationAST = new VarDeclaration(iAST, tAST, declarationPos);
+		preToken = @currentToken
+        tAST = parseTypeDenoter();
+        declarationAST = VarDeclarationAST.new(iAST, tAST, preToken);
       elsif (@currentToken.match?(:proc))
         acceptIt();
         iAST = parseIdentifier();
         accept(:lparen);
-        #FormalParameterSequence fpsAST = parseFormalParameterSequence();
-        #accept(Token.RPAREN);
-        #accept(Token.IS);
-        #Command cAST = parseSingleCommand();
-        #finish(declarationPos);
-        #declarationAST = new ProcDeclaration(iAST, fpsAST, cAST, declarationPos);
+        fpsAST = parseFormalParameterSequence();
+        accept(:rparen);
+        accept(:is);
+		preToken = @currentToken
+        cAST = parseSingleCommand()
+        declarationAST = ProcDeclarationAST.new(iAST, fpsAST, cAST, preToken);
       elsif (@currentToken.match?(:func))
         acceptIt();
-        Identifier iAST = parseIdentifier();
+        iAST = parseIdentifier();
         accept(:lparen);
-        #FormalParameterSequence fpsAST = parseFormalParameterSequence();
-        #accept(Token.RPAREN);
-        #accept(Token.COLON);
-        #TypeDenoter tAST = parseTypeDenoter();
-        #accept(Token.IS);
-        #Expression eAST = parseExpression();
-        #finish(declarationPos);
-        #declarationAST = new FuncDeclaration(iAST, fpsAST, tAST, eAST,declarationPos);
+        fpsAST = parseFormalParameterSequence();
+        accept(:rparen);
+        accept(:colon);
+        tAST = parseTypeDenoter()
+        accept(:is);
+		preToken = @currentToken
+        eAST = parseExpression();
+        declarationAST = FuncDeclarationAST(iAST, fpsAST, tAST, eAST,preToken);
       elsif (@currentToken.match?(:type))
         acceptIt();
         iAST = parseIdentifier();
         accept(:is);
-        #TypeDenoter tAST = parseTypeDenoter();
-        #finish(declarationPos);
-        #declarationAST = new TypeDeclaration(iAST, tAST, declarationPos);
+		preToken = @currentToken
+        tAST = parseTypeDenoter();
+        declarationAST = new TypeDeclarationAST.new(iAST, tAST, preToken);
       else
         raise SyntaxError, "cannot start a declaration , current token #{@currentToken.classInfo}"   
       end
     end
     
+	def parseTypeDenoter
+	  typeAST = nil
+	  preToken = @currentToken
+	  if (@currentToken.match?(:identifier))
+	    iAST = parseIdentifier()
+		typeAST = SimpleTypeDenoterAST.new(iAST,preToken)
+	  elsif(@currentToken.match?(:array))
+	    acceptIt();
+        ilAST = parseIntegerLiteral()
+        accept(:of);
+        tAST = parseTypeDenoter()
+		typeAST = ArrayTypeDenoter(ilAST,tAST,preToken)
+	  elsif(@currentToken.match?(:record))
+	    acceptIt();
+		fAST = parseFieldTypeDenoter()
+		accept(:end)
+		typeAST = RecordTypeDenoterAST(fAST,preToken)
+	   else
+	     raise SyntaxError, "cannot start a type denoter, current token #{@currentToken.classInfo}" 
+	  end
+	  return typeAST
+	end
+	def parseFieldTypeDenoter
+	  fieldAST = nil
+	  preToken = @currentToken
+	  iAST = parseIdentifier()
+	  accept(:colon);
+	  tAST = parseTypeDenoter()
+	  if (@currentToken.match?(:comma))
+	    acceptIt();
+		fAST = parseFieldTypeDenoter()
+		fieldAST = MultipleFieldTypeDenoterAST.new(iAST,tAST,fAST,preToken)
+      else
+	    fieldAST = SingleFieldTypeDenoterAST.new(iAST,tAST,preToken)
+	  end
+	  return fieldAST
+	end
     def parseActualParameterSequence
       actualsAST = nil
       preToken = @currentToken
@@ -400,7 +451,7 @@ module Delta
       preToken = @currentToken
       apAST = parseActualParameter()
       
-      if @currentToken.match?(:comma)
+      if (@currentToken.match?(:comma) )
         accepIt()
         apsAST = parseProperActualParameterSequence()
         actualsAST = MultipleActualParameterSequenceAST.new(apAST, apsAST,preToken)
@@ -409,7 +460,69 @@ module Delta
       end
       return actualsAST
     end
-    
+	
+	def parseFormalParameterSequence
+	  preToken = @currentToken
+	  formalsAST = nil
+	  if (@currentToken.match?(:rparen))
+	    formalsAST = EmptyFormalParameterSequenceAST.new(preToken)
+	  else
+	    formalsAST = parseProperFormalParameterSequence()
+	  end
+	  return formalsAST
+	end
+    def parseProperFormalParameterSequence
+      preToken = @currentToken
+	  formalsAST = nil
+      fpAST = parseFormalParameter
+      if (@currentToken.match?(:comma))
+        acceptIt()
+		preToken = @currentToken
+		fpsAST = parseProperFormalParameterSequence
+		formalsAST = MultipleFormalParameterSequenceAST.new(fpAST,fpsAST,preToken)
+	  else
+	    formalsAST = SingleFormalParameterSequenceAST.new(fpAST,preToken)
+	  end
+      return formalsAST	  
+	end
+	def parseFormalParameter
+	   formalAST = nil
+	   
+	   if (@currentToken.match?(:identifier))
+	    iAST = parseIdentifier()
+		accept(:colon)
+		preToken = @currentToken
+		tAST = parseTypeDenoter()
+		formalAST = ConstFormalParameterAST.new(iAST,tAST,preToken)
+	   elsif (@currentToken.match?(:var))
+	    iAST = parseIdentifier()
+		accept(:colon)
+		preToken = @currentToken
+		tAST = parseTypeDenoter()
+		formalAST = VarFormalParameterAST.new(iAST,tAST,preToken)
+	   elsif (@currentToken.match?(:proc))
+		 acceptIt()
+		 iAST = parseIdentifier()
+		 accept(:lparen)
+		 fpsAST = parseFormalParameterSequence 
+		 accept(:rparen)
+		 preToken = @currentToken
+		 formalAST = ProcFormalParameterAST.new(iAST,fpsAST,preToken)
+	   elsif (@currentToken.match?(:func))
+		 acceptIt()
+		 iAST = parseIdentifier()
+		 accept(:lparen)
+		 fpsAST = parseFormalParameterSequence
+		 accept(:rparen)
+		 accept(:colon)
+		 tAST = parseTypeDenoter()
+		 preToken = @currentToken
+		 formalAST = FuncFormalParameterAST.new(iAST,fpsAST,tAST,preToken)
+		else
+		 raise SyntaxError, "cannot start a formal parameter, current token #{@currentToken.classInfo}" 
+	   end
+	   return formalAST
+	end
     def parseActualParameter
       actualAST = nil
       preToken = @currentToken
@@ -444,6 +557,7 @@ module Delta
     def parseIdentifier
       preToken = @currentToken
       idenAST = nil
+	  
       if @currentToken.match?(:identifier)     
           idenAST = Delta::IdentifierAST.new(preToken)
           @currentToken = scan()

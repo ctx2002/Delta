@@ -389,7 +389,7 @@ module Delta
   
   class IntegerToken < ScanToken
       
-      def matchFirst?
+    def matchFirst?
       return ['0','1','2','3','4','5','6','7','8','9'].include?(Scanner.source.currentChar)
     end
       def collectInfo
@@ -401,9 +401,9 @@ module Delta
       charCode = Scanner.source.charCode
       
       loop do
-          tokenValue = tokenValue + Scanner.source.currentChar
-                takeIt
-                break if !(['0','1','2','3','4','5','6','7','8','9'].include?(Scanner.source.currentChar) )     
+        tokenValue = tokenValue + Scanner.source.currentChar
+		takeIt
+		break if !(['0','1','2','3','4','5','6','7','8','9'].include?(Scanner.source.currentChar) )     
       end
       #while ['0','1','2','3','4','5','6','7','8','9'].include?(Scanner.source.currentChar)
       # tokenValue = tokenValue + Scanner.source.currentChar

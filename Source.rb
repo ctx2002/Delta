@@ -1,11 +1,11 @@
 # encoding: utf-8
 module Delta
     class Source
-      attr_accessor(:fileName,:file ,:currentChar)
-    attr_reader(:position, :line, :prePosition)
-        attr_reader(:lineState,:charCode)
+	attr_accessor(:fileName,:file ,:currentChar)
+	attr_reader(:position, :line, :prePosition)
+	attr_reader(:lineState,:charCode)
     def initialize(file)
-        @fileName = file
+      @fileName = file
       @position = -1;
       @line = 1;
       @lineState = 0
@@ -46,9 +46,9 @@ module Delta
     
     def fetchFirstChar
         @currentChar = getc
-            skipBOM     
-            sourceInfo (@currentChar) 
-            return @currentChar     
+		skipBOM     
+		sourceInfo (@currentChar) 
+		return @currentChar     
     end
     
     def screen (char)
