@@ -1,0 +1,21 @@
+﻿Build started 27/11/2012 10:29:18 p.m..
+     1>Project "c:\Users\anru\documents\visual studio 2010\Projects\BinaryTree\BinaryTree\BinaryTree.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\BinaryTree.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt BinaryTree.c
+         BinaryTree.c
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\anru\documents\visual studio 2010\Projects\BinaryTree\Debug\BinaryTree.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\BinaryTree.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"c:\users\anru\documents\visual studio 2010\Projects\BinaryTree\Debug\BinaryTree.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\anru\documents\visual studio 2010\Projects\BinaryTree\Debug\BinaryTree.lib" /MACHINE:X86 Debug\BinaryTree.obj
+         LINK : c:\users\anru\documents\visual studio 2010\Projects\BinaryTree\Debug\BinaryTree.exe not found or not built by the last incremental link; performing full link
+         BinaryTree.vcxproj -> c:\users\anru\documents\visual studio 2010\Projects\BinaryTree\Debug\BinaryTree.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"c:\users\anru\documents\visual studio 2010\Projects\BinaryTree\Debug\BinaryTree.exe;#1" /manifest Debug\BinaryTree.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\BinaryTree.unsuccessfulbuild".
+         Touching "Debug\BinaryTree.lastbuildstate".
+     1>Done Building Project "c:\Users\anru\documents\visual studio 2010\Projects\BinaryTree\BinaryTree\BinaryTree.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.66
