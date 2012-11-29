@@ -1,4 +1,5 @@
 #include "BinaryTree.h"
+#include "Stack.h"
 #include <stdlib.h>
 #include <stdio.h>
 static int lookup(node* node,int data)
@@ -58,6 +59,12 @@ static node* build123b(void)
   n = insert(n,1);
   n = insert(n,3);
   n = insert(n,-1);
+  n = insert(n,-3);
+  n = insert(n,4);
+  n = insert(n,7);
+  n = insert(n,9);
+  n = insert(n,5);
+  n = insert(n,-5);
   return n;
 }
 
@@ -81,16 +88,88 @@ static void print_tree(node* root)
 	}
 }
 
+static int maxDepth(node* node,int level)
+{
+  static int c = 0;
+	if (node == 0) return c;
+	if (level > c ) c = level;
+  maxDepth(node->left,level+1);
+  maxDepth(node->right,level+1);
+  return c;
+}
+
+static int minValue(node* n)
+{
+	node* old;
+	if(n == 0) return 0;
+	while(n) {
+		old = n;
+		n = n->left;
+	}
+	return old->data;
+}
+
+void printPostorder(node* root)
+{
+	if(0 != root) {
+	  print_tree(root->left);
+	  print_tree(root->right);
+	  printf(" %d ",root->data);
+	}
+}
+
+void mirror(node* root)
+{
+	node* old ;
+	if(root){
+		mirror(root->left);
+		mirror(root->right);
+		old = root->left;
+		root->left = root->right;
+		root->right = old;
+	}
+}
+
+/*
+static int maxDepth_norec(node* node, int level)
+{
+  int c = 0;
+  Stack* s = (struct Stack*) malloc(sizeof(struct Stack));
+  Stack_Init(s);
+  while(1) {
+    if (0 == node) return c;
+	if (level > c) c = level;
+  }
+}
+*/
 
 int main(int arg, char **argv)
 {
     node* n = build123();
 	node* n1 = build123b();
 	int c = 0;
-	print_tree(n); 
+	print_tree(n);
+	printf("\n");
+	printPostorder(n);
+	printf("\n");
 	print_tree(n1);
+	printf("\n");
+
+	mirror(n);
+	print_tree(n);
+	printf("\n");
 
 	c = size(n1);
 	printf("\nsize: %d\n",c);
+
+	c = maxDepth(n1,0);
+	printf("\ndepth: %d\n",c);
+
+	c = minValue(n1);
+	printf("\nmin: %d\n",c);
+
+	mirror(n1);
+	print_tree(n1);
+	printf("\n");
 	return 0;
 }
