@@ -20,7 +20,16 @@ class utils {
             return FALSE;
         return 0;    
     }
-    // $num is a hex number -- 0x2028
+    
+    static public function cache_char2UnicodePoint($c)
+    {
+        static $cache = array();
+        if (isset($cache[$c])) return $cache[$c];
+        $code = \utils::char2UnicodePoint($c);
+        $cache[$c] = $code;
+        return $code;
+    }
+    // $num is unicode code point.
     static public function utf8($num)
     {
         if($num<=0x7F)       return chr($num);

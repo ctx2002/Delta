@@ -42,6 +42,12 @@ namespace Unicode {
                            0x2029,0x202f,0x205f,0x3000);
             return in_array($hexNumber, $WHITESPACE);
         }
+        
+        public function isLineTerminator($codeUnit)
+        {
+            $line = array(0x000a,0x000d,0x2028,0x2029);
+            return in_array($codeUnit, $line);
+        }
     }
 }
 
