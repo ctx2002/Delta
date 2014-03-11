@@ -1,0 +1,3 @@
+copy_paste_front_homepage:
+    pattern:  /
+    defaults: { _controller: CopyPasteFrontBundle:Default:index }

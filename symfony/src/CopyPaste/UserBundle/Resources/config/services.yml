@@ -1,0 +1,7 @@
+parameters:
+#    copy_paste_user.example.class: CopyPaste\UserBundle\Example
+
+services:
+#    copy_paste_user.example:
+#        class: %copy_paste_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

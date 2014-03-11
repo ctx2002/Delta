@@ -1,0 +1,3 @@
+copy_paste_user_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: CopyPasteUserBundle:Default:index }
