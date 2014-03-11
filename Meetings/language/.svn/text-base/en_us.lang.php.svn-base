@@ -1,0 +1,8 @@
+<?php
+// created: 2011-01-28 16:36:54
+$mod_strings = array (
+    'LBL_DOUGLAS_TALKED_DRUG' => 'Talked drug',
+    'LBL_PANEL_TALKED_DRUG' => 'Talked drug',
+    'LBL_DOUGLAS_STORE_PPG_REVIEW' => 'Store PPG Review',
+);
+?>

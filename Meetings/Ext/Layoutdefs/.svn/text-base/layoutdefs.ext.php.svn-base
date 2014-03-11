@@ -1,0 +1,1642 @@
+<?php 
+ //WARNING: The contents of this file are auto-generated
+
+
+// created: 2011-03-03 17:00:12
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_feedback_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_feedback',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_FEEDBACK_MEETINGS_FROM_DG_STORE_FEEDBACK_TITLE',
+  'get_subpanel_data' => 'dg_store_feedback_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-03 17:07:45
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_feedback_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_feedback',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_FEEDBACK_MEETINGS_FROM_DG_STORE_FEEDBACK_TITLE',
+  'get_subpanel_data' => 'dg_store_feedback_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 14:32:15
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_feedback_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_feedback',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_FEEDBACK_MEETINGS_FROM_DG_STORE_FEEDBACK_TITLE',
+  'get_subpanel_data' => 'dg_store_feedback_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 14:57:04
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_feedback_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_feedback',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_FEEDBACK_MEETINGS_FROM_DG_STORE_FEEDBACK_TITLE',
+  'get_subpanel_data' => 'dg_store_feedback_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:02:34
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_feedback_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_feedback',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_FEEDBACK_MEETINGS_FROM_DG_STORE_FEEDBACK_TITLE',
+  'get_subpanel_data' => 'dg_store_feedback_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:14:10
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_feedback_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_feedback',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_FEEDBACK_MEETINGS_FROM_DG_STORE_FEEDBACK_TITLE',
+  'get_subpanel_data' => 'dg_store_feedback_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:21:03
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_feedback_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_feedback',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_FEEDBACK_MEETINGS_FROM_DG_STORE_FEEDBACK_TITLE',
+  'get_subpanel_data' => 'dg_store_feedback_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-07 12:19:54
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_feedback_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_feedback',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_FEEDBACK_MEETINGS_FROM_DG_STORE_FEEDBACK_TITLE',
+  'get_subpanel_data' => 'dg_store_feedback_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:02:41
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_feedback_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_feedback',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_FEEDBACK_MEETINGS_FROM_DG_STORE_FEEDBACK_TITLE',
+  'get_subpanel_data' => 'dg_store_feedback_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:48:07
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_feedback_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_feedback',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_FEEDBACK_MEETINGS_FROM_DG_STORE_FEEDBACK_TITLE',
+  'get_subpanel_data' => 'dg_store_feedback_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:55:17
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_feedback_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_feedback',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_FEEDBACK_MEETINGS_FROM_DG_STORE_FEEDBACK_TITLE',
+  'get_subpanel_data' => 'dg_store_feedback_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+
+// created: 2011-03-04 14:32:19
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medical_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medical',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICAL_MEETINGS_FROM_DG_STORE_MEDICAL_TITLE',
+  'get_subpanel_data' => 'dg_store_medical_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 14:57:07
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medical_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medical',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICAL_MEETINGS_FROM_DG_STORE_MEDICAL_TITLE',
+  'get_subpanel_data' => 'dg_store_medical_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:02:37
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medical_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medical',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICAL_MEETINGS_FROM_DG_STORE_MEDICAL_TITLE',
+  'get_subpanel_data' => 'dg_store_medical_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:14:13
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medical_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medical',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICAL_MEETINGS_FROM_DG_STORE_MEDICAL_TITLE',
+  'get_subpanel_data' => 'dg_store_medical_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:21:06
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medical_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medical',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICAL_MEETINGS_FROM_DG_STORE_MEDICAL_TITLE',
+  'get_subpanel_data' => 'dg_store_medical_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-07 12:19:57
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medical_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medical',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICAL_MEETINGS_FROM_DG_STORE_MEDICAL_TITLE',
+  'get_subpanel_data' => 'dg_store_medical_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:02:44
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medical_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medical',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICAL_MEETINGS_FROM_DG_STORE_MEDICAL_TITLE',
+  'get_subpanel_data' => 'dg_store_medical_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:48:11
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medical_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medical',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICAL_MEETINGS_FROM_DG_STORE_MEDICAL_TITLE',
+  'get_subpanel_data' => 'dg_store_medical_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:55:20
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medical_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medical',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICAL_MEETINGS_FROM_DG_STORE_MEDICAL_TITLE',
+  'get_subpanel_data' => 'dg_store_medical_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+
+// created: 2011-03-04 14:32:23
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medico_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medico',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICO_MEETINGS_FROM_DG_STORE_MEDICO_TITLE',
+  'get_subpanel_data' => 'dg_store_medico_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 14:57:11
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medico_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medico',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICO_MEETINGS_FROM_DG_STORE_MEDICO_TITLE',
+  'get_subpanel_data' => 'dg_store_medico_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:02:40
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medico_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medico',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICO_MEETINGS_FROM_DG_STORE_MEDICO_TITLE',
+  'get_subpanel_data' => 'dg_store_medico_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:14:17
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medico_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medico',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICO_MEETINGS_FROM_DG_STORE_MEDICO_TITLE',
+  'get_subpanel_data' => 'dg_store_medico_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:21:10
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medico_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medico',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICO_MEETINGS_FROM_DG_STORE_MEDICO_TITLE',
+  'get_subpanel_data' => 'dg_store_medico_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-07 12:20:01
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medico_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medico',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICO_MEETINGS_FROM_DG_STORE_MEDICO_TITLE',
+  'get_subpanel_data' => 'dg_store_medico_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:02:48
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medico_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medico',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICO_MEETINGS_FROM_DG_STORE_MEDICO_TITLE',
+  'get_subpanel_data' => 'dg_store_medico_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:48:14
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medico_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medico',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICO_MEETINGS_FROM_DG_STORE_MEDICO_TITLE',
+  'get_subpanel_data' => 'dg_store_medico_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:55:24
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_medico_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_medico',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_MEDICO_MEETINGS_FROM_DG_STORE_MEDICO_TITLE',
+  'get_subpanel_data' => 'dg_store_medico_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+
+// created: 2011-03-03 17:00:15
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_planogram_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_planogram',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PLANOGRAM_MEETINGS_FROM_DG_STORE_PLANOGRAM_TITLE',
+  'get_subpanel_data' => 'dg_store_planogram_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-03 17:07:48
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_planogram_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_planogram',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PLANOGRAM_MEETINGS_FROM_DG_STORE_PLANOGRAM_TITLE',
+  'get_subpanel_data' => 'dg_store_planogram_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 14:32:26
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_planogram_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_planogram',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PLANOGRAM_MEETINGS_FROM_DG_STORE_PLANOGRAM_TITLE',
+  'get_subpanel_data' => 'dg_store_planogram_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 14:57:14
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_planogram_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_planogram',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PLANOGRAM_MEETINGS_FROM_DG_STORE_PLANOGRAM_TITLE',
+  'get_subpanel_data' => 'dg_store_planogram_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:02:44
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_planogram_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_planogram',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PLANOGRAM_MEETINGS_FROM_DG_STORE_PLANOGRAM_TITLE',
+  'get_subpanel_data' => 'dg_store_planogram_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:14:21
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_planogram_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_planogram',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PLANOGRAM_MEETINGS_FROM_DG_STORE_PLANOGRAM_TITLE',
+  'get_subpanel_data' => 'dg_store_planogram_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:21:13
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_planogram_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_planogram',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PLANOGRAM_MEETINGS_FROM_DG_STORE_PLANOGRAM_TITLE',
+  'get_subpanel_data' => 'dg_store_planogram_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-07 12:20:04
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_planogram_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_planogram',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PLANOGRAM_MEETINGS_FROM_DG_STORE_PLANOGRAM_TITLE',
+  'get_subpanel_data' => 'dg_store_planogram_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:02:51
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_planogram_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_planogram',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PLANOGRAM_MEETINGS_FROM_DG_STORE_PLANOGRAM_TITLE',
+  'get_subpanel_data' => 'dg_store_planogram_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:48:17
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_planogram_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_planogram',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PLANOGRAM_MEETINGS_FROM_DG_STORE_PLANOGRAM_TITLE',
+  'get_subpanel_data' => 'dg_store_planogram_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:55:28
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_planogram_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_planogram',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PLANOGRAM_MEETINGS_FROM_DG_STORE_PLANOGRAM_TITLE',
+  'get_subpanel_data' => 'dg_store_planogram_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+
+// created: 2011-03-02 16:43:36
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-02 17:19:35
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-03 09:18:04
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-03 11:57:17
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-03 13:39:24
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-03 17:00:17
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-03 17:07:51
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 14:32:30
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 14:57:17
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:02:47
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:14:24
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:21:17
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-07 12:20:07
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:02:54
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:48:20
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:55:31
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_ppg_review_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_ppg_review',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_PPG_REVIEW_MEETINGS_FROM_DG_STORE_PPG_REVIEW_TITLE',
+  'get_subpanel_data' => 'dg_store_ppg_review_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+
+// created: 2011-03-03 13:39:26
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_training_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_training',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_TRAINING_MEETINGS_FROM_DG_STORE_TRAINING_TITLE',
+  'get_subpanel_data' => 'dg_store_training_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-03 17:00:19
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_training_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_training',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_TRAINING_MEETINGS_FROM_DG_STORE_TRAINING_TITLE',
+  'get_subpanel_data' => 'dg_store_training_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-03 17:07:54
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_training_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_training',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_TRAINING_MEETINGS_FROM_DG_STORE_TRAINING_TITLE',
+  'get_subpanel_data' => 'dg_store_training_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 14:32:34
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_training_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_training',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_TRAINING_MEETINGS_FROM_DG_STORE_TRAINING_TITLE',
+  'get_subpanel_data' => 'dg_store_training_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 14:57:20
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_training_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_training',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_TRAINING_MEETINGS_FROM_DG_STORE_TRAINING_TITLE',
+  'get_subpanel_data' => 'dg_store_training_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:02:51
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_training_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_training',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_TRAINING_MEETINGS_FROM_DG_STORE_TRAINING_TITLE',
+  'get_subpanel_data' => 'dg_store_training_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:14:28
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_training_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_training',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_TRAINING_MEETINGS_FROM_DG_STORE_TRAINING_TITLE',
+  'get_subpanel_data' => 'dg_store_training_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-04 15:21:20
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_training_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_training',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_TRAINING_MEETINGS_FROM_DG_STORE_TRAINING_TITLE',
+  'get_subpanel_data' => 'dg_store_training_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-07 12:20:10
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_training_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_training',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_TRAINING_MEETINGS_FROM_DG_STORE_TRAINING_TITLE',
+  'get_subpanel_data' => 'dg_store_training_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:02:58
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_training_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_training',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_TRAINING_MEETINGS_FROM_DG_STORE_TRAINING_TITLE',
+  'get_subpanel_data' => 'dg_store_training_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:48:24
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_training_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_training',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_TRAINING_MEETINGS_FROM_DG_STORE_TRAINING_TITLE',
+  'get_subpanel_data' => 'dg_store_training_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+// created: 2011-03-17 11:55:35
+$layout_defs["Meetings"]["subpanel_setup"]["dg_store_training_meetings"] = array (
+  'order' => 100,
+  'module' => 'dg_store_training',
+  'subpanel_name' => 'default',
+  'sort_order' => 'asc',
+  'sort_by' => 'id',
+  'title_key' => 'LBL_DG_STORE_TRAINING_MEETINGS_FROM_DG_STORE_TRAINING_TITLE',
+  'get_subpanel_data' => 'dg_store_training_meetings',
+  'top_buttons' => 
+  array (
+    0 => 
+    array (
+      'widget_class' => 'SubPanelTopButtonQuickCreate',
+    ),
+    1 => 
+    array (
+      'widget_class' => 'SubPanelTopSelectButton',
+      'mode' => 'MultiSelect',
+    ),
+  ),
+);
+
+
+?>

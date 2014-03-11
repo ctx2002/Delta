@@ -1,0 +1,363 @@
+<?php
+require_once "modules/dg_store_ppg_review/dg_store_ppg_review.php";
+class Store
+{
+    public function save_store($bean,$event,$arguments)
+    {
+        //var_dump($_POST); die();
+    	//$f = new UploadFile('uploadfile');
+    	$this->save_ppg_review($bean,$event,$arguments);
+    	$this->save_store_training($bean,$event,$arguments);
+    	$this->save_store_medico($bean,$event,$arguments);
+    	
+    	$this->save_store_medical($bean,$event,$arguments);
+    	$this->save_store_feedback($bean,$event,$arguments);
+    	$this->save_store_planogram($bean,$event,$arguments);
+    	$this->save_clinician($bean,$event,$arguments);
+    	
+    }
+    
+    private function getAllBrands($bean,$table = 'dg_cust_brand')
+ 	{
+ 		$result  = $bean->db->query('SELECT id,name FROM '.$table . " ORDER BY name");
+ 		$temp = array();
+ 		while($row = $bean->db->fetchByAssoc($result)) {
+ 			$temp[$row['id']] = $row['name'];	
+ 		}
+ 		
+ 		return $temp;
+ 		
+ 	}
+ 	
+	private function save_relationship($moduleObj,$linkedFieldName,$linkedFieldIDs)
+	{
+	    if($moduleObj->load_relationship($linkedFieldName)) {
+	        $moduleObj->$linkedFieldName->add($linkedFieldIDs,array());        
+	    }
+	}
+	
+	private function save_clinician($bean,$event,$arguments)
+	{
+	    global $current_user;
+	    $values = $this->getAllBrands($bean,'dg_clinicians');
+ 	    $lists = $bean->get_linked_beans('dg_meeting_clinicians_meetings','dg_meeting_clinicians');
+
+ 	    $storedValues = array();
+ 	    
+	    foreach($lists as $key => $obj) {
+            	$brands = $obj->get_linked_beans('dg_meeting_clinicians_dg_clinicians','dg_Clinicians');
+ 		        $brand = $brands[0];
+                $storedValues[$brand->id] = $obj;
+        }
+        
+        $obj = null;
+        foreach ($values as $key => $content) {
+            if (array_key_exists($key,$storedValues)) {
+ 	    	    $obj = $storedValues[$key];
+ 	    	    $obj->modified_user_id = $current_user->id;
+ 	    	} else {
+ 	    		$obj =  new dg_meeting_clinicians();
+ 	    		$obj->created_by = $current_user->id;
+ 	    	}
+ 	    	
+ 	    	$obj->name = $content;
+	 	    	$obj->team_id = $current_user->default_team;
+	 	    	$obj->discussed = isset($_POST['clinician_discussed'][$key]) ? 1 : 0;
+	 	    	//iterature_given
+	 	    	$obj->literature_given = isset($_POST['clinician_literature_given'][$key]) ? 1 : 0;
+	 	    	//samples_given
+	 	    	$obj->samples_given = isset($_POST['clinician_samples_given'][$key]) ? 1 : 0;
+	 	    	$obj->description = isset($_POST['clinician_comment'][$key]) ? $_POST['clinician_comment'][$key] : '';
+	 	    	$obj->product = isset($_POST['clinician_product'][$key]) ? $_POST['clinician_product'][$key] : '';
+	 	    	$obj->merchandising = isset($_POST['clinician_merchandising'][$key]) ? 1: 0;
+	 	    	
+	 	    	$obj->save();
+	 	    	$this->save_relationship($obj,'dg_meeting_clinicians_meetings',array($bean->id));
+	 	    	$this->save_relationship($obj,'dg_meeting_clinicians_dg_clinicians',array($key));	
+        } 
+ 	    
+	}
+	
+    private function save_store_medical($bean,$event,$arguments)
+	{
+	     global $current_user;
+
+         $lists = $bean->get_linked_beans('dg_store_medical_meetings','dg_store_medical');
+         $values = $this->getAllBrands($bean,'dg_cust_medical');
+
+         $storedValues = array();
+            foreach($lists as $key => $obj) {
+            	$brands = $obj->get_linked_beans('dg_store_medical_dg_cust_medical','dg_cust_medical');
+ 		        $brand = $brands[0];
+                $storedValues[$brand->id] = $obj;
+            }
+            
+            $obj = null;
+            foreach ($values as $key => $content) {
+	 	    	if (array_key_exists($key,$storedValues)) {
+	 	    	    $obj = $storedValues[$key];
+	 	    	    $obj->modified_user_id = $current_user->id;
+	 	    	} else {
+	 	    		$obj =  new dg_store_medical();
+	 	    		$obj->created_by = $current_user->id;
+	 	    	}
+	 	    	$obj->name = $content;
+	 	    	$obj->team_id = $current_user->default_team;
+	 	    	$obj->discussed = isset($_POST['medical_discussed'][$key]) ? 1 : 0;
+	 	    	//iterature_given
+	 	    	$obj->literature_given = isset($_POST['medical_literature_given'][$key]) ? 1 : 0;
+	 	    	//samples_given
+	 	    	$obj->samples_given = isset($_POST['medical_samples_given'][$key]) ? 1 : 0;
+	 	    	$obj->description = isset($_POST['medical_comment'][$key]) ? $_POST['medical_comment'][$key] : '';
+	 	    	$obj->drug = isset($_POST['medical_drug'][$key]) ? $_POST['medical_drug'][$key] : '';
+	 	    	
+	 	    	$obj->save();
+	 	    	$this->save_relationship($obj,'dg_store_medical_meetings',array($bean->id));
+	 	    	$this->save_relationship($obj,'dg_store_medical_dg_cust_medical',array($key));	
+ 	        }            
+	}
+	
+	
+	private function save_store_medico($bean,$event,$arguments)
+	{
+	     global $current_user;
+
+         $lists = $bean->get_linked_beans('dg_store_medico_meetings','dg_store_medico');
+         $values = $this->getAllBrands($bean,'dg_cust_medico');
+
+         $storedValues = array();
+            foreach($lists as $key => $obj) {
+            	$brands = $obj->get_linked_beans('dg_store_medico_dg_cust_medico','dg_cust_medico');
+ 		        $brand = $brands[0];
+                $storedValues[$brand->id] = $obj;
+            }
+            
+            $obj = null;
+            foreach ($values as $key => $content) {
+	 	    	if (array_key_exists($key,$storedValues)) {
+	 	    	    $obj = $storedValues[$key];
+	 	    	    $obj->modified_user_id = $current_user->id;
+	 	    	} else {
+	 	    		$obj =  new dg_store_medico();
+	 	    		$obj->created_by = $current_user->id;
+	 	    	}
+	 	    	$obj->name = $content;
+	 	    	$obj->team_id = $current_user->default_team;
+	 	    	$obj->completed = isset($_POST['medico_completed'][$key]) ? 1 : 0;
+	 	    	$obj->description = isset($_POST['medico_comment'][$key]) ? $_POST['medico_comment'][$key] : '';
+	 	    	
+	 	    	
+	 	    	$obj->save();
+	 	    	$this->save_relationship($obj,'dg_store_medico_meetings',array($bean->id));
+	 	    	$this->save_relationship($obj,'dg_store_medico_dg_cust_medico',array($key));	
+ 	        }
+         
+                
+	}
+	
+    private function save_store_training($bean,$event,$arguments)
+    {
+           global $current_user;
+
+            $lists = $bean->get_linked_beans('dg_store_training_meetings','dg_store_training');
+            $values = $this->getAllBrands($bean);
+         
+            $storedValues = array();
+            foreach($lists as $key => $obj) {
+            	$brands = $obj->get_linked_beans('dg_store_training_dg_cust_brand','dg_cust_brand');
+ 		        $brand = $brands[0];
+                $storedValues[$brand->id] = $obj;
+            }
+            
+            $obj = null;
+            foreach ($values as $key => $content) {
+	 	    	if (array_key_exists($key,$storedValues)) {
+	 	    	    $obj = $storedValues[$key];
+	 	    	    $obj->modified_user_id = $current_user->id;
+	 	    	} else {
+	 	    		$obj =  new dg_store_training();
+	 	    		$obj->created_by = $current_user->id;
+	 	    	}
+	 	    	$obj->name = $content;
+	 	    	$obj->team_id = $current_user->default_team;
+	 	    	$obj->retail = isset($_POST['store_training_retail'][$key]) ? 1 : 0;
+	 	    	$obj->type = isset($_POST['store_training_type'][$key]) ? $_POST['store_training_type'][$key] : 'none';
+	 	    	$obj->growth = isset($_POST['store_training_growth'][$key]) ? $_POST['store_training_growth'][$key]: null;
+	 	    	
+	 	    	$obj->save();
+	 	    	$this->save_relationship($obj,'dg_store_training_meetings',array($bean->id));
+	 	    	$this->save_relationship($obj,'dg_store_training_dg_cust_brand',array($key));	
+ 	        }
+
+    }
+    
+    private function save_ppg_review($bean,$event,$arguments)
+    {
+        global $current_user;
+
+            $lists = $bean->get_linked_beans('dg_store_ppg_review_meetings','dg_store_ppg_review');
+            $values = $this->getAllBrands($bean);
+           
+            $storedValues = array();
+            foreach($lists as $key => $obj) {
+            	$brands = $obj->get_linked_beans('dg_store_ppg_review_dg_cust_brand','dg_cust_brand');
+ 		        $brand = $brands[0];
+                $storedValues[$brand->id] = $obj;
+            }
+           
+            
+            $obj = null;
+            foreach ($values as $key => $content) {
+	 	    	if (array_key_exists($key,$storedValues)) {
+	 	    	    $obj = $storedValues[$key];
+	 	    	    
+	 	    	    $obj->modified_user_id = $current_user->id;
+	 	    	} else {
+	 	    		$obj =  new dg_store_ppg_review();
+	 	    		$obj->created_by = $current_user->id;
+	 	    	}
+	 	    	$obj->name = $content;
+	 	    	$obj->team_id = $current_user->default_team;
+	 	    	$obj->audit = isset($_POST['ppg_audit'][$key]) ? 1 : 0;
+	 	    	$obj->review = isset($_POST['ppg_completed'][$key]) ? 1 : 0;
+	 	    	$obj->growth = isset($_POST['ppg_growth'][$key]) ? $_POST['ppg_growth'][$key]: '';
+	 	    	$obj->comment = isset($_POST['ppg_comment'][$key]) ? $_POST['ppg_comment'][$key] : '';
+	 	    	$obj->save();
+	 	    	$this->save_relationship($obj,'dg_store_ppg_review_meetings',array($bean->id));
+	 	    	$this->save_relationship($obj,'dg_store_ppg_review_dg_cust_brand',array($key));
+	 	    	
+ 	        }
+ 	        
+ 	       
+
+    }
+    
+    
+    private function save_store_feedback($bean,$event,$arguments)
+    {
+        global $current_user;
+
+            $lists = $bean->get_linked_beans('dg_store_feedback_meetings','dg_store_feedback');
+            $values = $this->getAllBrands($bean);
+           
+            $storedValues = array();
+            foreach($lists as $key => $obj) {
+            	$brands = $obj->get_linked_beans('dg_store_feedback_dg_cust_brand','dg_cust_brand');
+ 		        $brand = $brands[0];
+                $storedValues[$brand->id] = $obj;
+            }
+           
+            
+            $obj = null;
+            foreach ($values as $key => $content) {
+	 	    	if (array_key_exists($key,$storedValues)) {
+	 	    	    $obj = $storedValues[$key];
+	 	    	    
+	 	    	    $obj->modified_user_id = $current_user->id;
+	 	    	} else {
+	 	    		$obj =  new dg_store_feedback();
+	 	    		$obj->created_by = $current_user->id;
+	 	    	}
+	 	    	$obj->name = $content;
+	 	    	$obj->description = isset($_POST['feedback_comment'][$key]) ? $_POST['feedback_comment'][$key] : '';
+	 	    	$obj->save();
+	 	    	$this->save_relationship($obj,'dg_store_feedback_meetings',array($bean->id));
+	 	    	$this->save_relationship($obj,'dg_store_feedback_dg_cust_brand',array($key));
+	 	    	
+ 	        }
+ 	        
+ 	       
+
+    }
+    
+    private function save_store_planogram($bean,$event,$arguments)
+    {
+        global $current_user;
+        $lists = $bean->get_linked_beans('dg_store_planogram_meetings','dg_store_planogram');
+ 		$values = $this->getAllBrands($bean);
+        
+
+        $storedValues = array();
+        foreach($lists as $key => $obj) {
+            	$brands = $obj->get_linked_beans('dg_store_planogram_dg_cust_brand','dg_cust_brand');
+ 		        $brand = $brands[0];
+                $storedValues[$brand->id] = $obj;
+        }
+        
+        $obj = null;
+        foreach ($values as $key => $content) {
+            if (array_key_exists($key,$storedValues)) {
+ 	    	    $obj = $storedValues[$key];
+ 	    	    $obj->modified_user_id = $current_user->id;
+ 	    	} else {
+ 	    		$obj =  new dg_store_planogram();
+ 	    		$obj->created_by = $current_user->id;
+ 	    	}
+
+            $obj->name = $content;
+	 	    	$obj->team_id = $current_user->default_team;
+	 	    	$obj->complaint = isset($_POST['store_planogram_complaint'][$key]) ? $_POST['store_planogram_complaint'][$key] : "not_checked";
+	 	    	$obj->description = $_POST['store_planogram_comment'][$key];
+	 	    	
+	 	    	$this->save_planogram_photos($key,$obj,'photo_1');
+	 	    	$this->save_planogram_photos($key,$obj,'photo_2');
+	 	    	$this->save_planogram_photos($key,$obj,'photo_3');
+	 	    	$obj->save();
+	 	    	
+	 	    	$this->save_relationship($obj,'dg_store_planogram_meetings',array($bean->id));
+	 	    	$this->save_relationship($obj,'dg_store_planogram_dg_cust_brand',array($key));
+        }
+        
+        
+    }
+    
+    private function save_planogram_photos($key,$obj,$field)
+    {
+        /*$ids = array('photo_1','photo_2','photo_3');
+        foreach ($ids as $id) {
+            if (isset($_FILES[$id])) {
+               
+                $temp = '';
+               
+                if (isset($_FILES[$id]['tmp_name'][$key]) && trim($_FILES[$id]['tmp_name'][$key]) != '' ) {
+                    $temp = $_FILES[$id]['tmp_name'][$key];
+                }
+                
+                if ( $temp != '') {
+                    $file_name = create_guid();
+                    $dest = realpath(dirname(__FILE__))."/../../../".$GLOBALS['sugar_config']['upload_dir'] . "/".$file_name;
+                    if (!move_uploaded_file($temp,$dest) )
+                        die("ERROR: can't move_uploaded_file to $dest. You should try making the directory writable by the webserver");
+                    
+                    $obj->$id = $file_name;
+                }
+            }
+        }*/
+    	
+    	if (isset($_FILES[$field])) {
+    	    $temp = '';
+    	    if (isset($_FILES[$field]['tmp_name'][$key]) && trim($_FILES[$field]['tmp_name'][$key]) != '' ) {
+                    $temp = $_FILES[$field]['tmp_name'][$key];
+            }
+    	    if ( $temp != '') {
+                    $file_name = create_guid();
+                    $dest = realpath(dirname(__FILE__))."/../../../".$GLOBALS['sugar_config']['upload_dir'] . "/".$file_name;
+                    if (!move_uploaded_file($temp,$dest) )
+                        die("ERROR: can't move_uploaded_file to $dest. You should try making the directory writable by the webserver");
+                    
+                    $obj->$field = $file_name;
+    	    }
+            
+    	}
+    	
+        if (isset($_POST['photo_delete'])) {
+	    	if (in_array($obj->$field,$_POST['photo_delete'])) {
+	                $dest = realpath(dirname(__FILE__))."/../../../".$GLOBALS['sugar_config']['upload_dir'] . "/".$obj->field;
+	            	$obj->$field = '';
+	                //unlink;
+	                unlink($dest);  
+	        }
+        }
+    }
+    
+}
